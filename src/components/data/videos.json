@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Bud Light",
+    "description": "A factory is working on the new Bud Light Platinum.",
+    "standard": "PAL",
+    "definition": "SD",
+    "startTimecode": "00:00:00:00",
+    "endTimecode": "00:00:30:12"
+  },
+  {
+    "id": 2,
+    "name": "M&M's",
+    "description": "At a party,a brown shelled M&M is mistaken for being naked. As a result, the red M&M tears off its skin and dances to \"Sexy and I Know It\" by LMFAO.",
+    "standard": "NTSC",
+    "definition": "SD",
+    "startTimecode": "00:00:00:00",
+    "endTimecode": "00:00:15:27"
+  }
+]
