@@ -1,5 +1,5 @@
-import React from "react";
-import NewReelForm from "../components/NewReelForm";
+import React, { Fragment } from "react";
+import NewReelForm from "../components/NewReel/NewReelForm";
 
 // Todo: Apply styles
 const NewReel = (props) => {

@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react";
 import React from "react";
-import Reels from "../components/Reels";
-import Videos from "../components/Videos";
+import Reels from "../components/Reels/Reels";
+import Videos from "../components/Videos/Videos";
 
 // Todo: Apply styles
 const AllReels = (props) => {
@@ -15,9 +15,11 @@ const AllReels = (props) => {
   return (
     <Fragment>
       <title>All Reels</title>
-      <div>
-        <Reels items={reels} onSelectReel={selectReelHandler} />
-      </div>
+      {reels.length > 0 && (
+        <div>
+          <Reels items={reels} onSelectReel={selectReelHandler} />
+        </div>
+      )}
       <div>
         <Videos items={filteredVideos} />
       </div>

@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 
 const getVideoDuration = (video) => {
   //Todo: Calculate duration per video
@@ -11,14 +11,16 @@ const getVideoDuration = (video) => {
 };
 
 const getDurationText = (videos) => {
-  const totalDuration = 0;
+  let totalDuration = 0;
 
-  videos.map((video) => {
+  videos.array.forEach((video) => {
     totalDuration += getVideoDuration(video);
   });
 
-  //convert duration from milliseconds to format HH:MM:ss:ff
-  return "";
+  const totalDurationText = "";
+  //Todo: convert duration from milliseconds to format HH:MM:ss:ff
+
+  return totalDurationText;
 };
 
 const TotalDuration = (props) => {
