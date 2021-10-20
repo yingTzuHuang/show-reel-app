@@ -4,6 +4,7 @@ import ReelItem from "./ReelItem";
 describe("ReelItem", () => {
   test("renders ReelItem", () => {
     //Arrange
+    //Act
     //Assert
   });
 });

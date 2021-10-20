@@ -1,27 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 import data from "./components/data/videos.json";
+import { Route, Switch } from "react-router-dom";
 import AllReels from "./pages/AllReels";
 import AllVideos from "./pages/AllVideos";
-import NewReel from "./pages/NewReel";
 
-//Todo: get items for reels from server/storage
-let reels = [];
+import Navigation from "./components/layout/Navigation";
 
 function App() {
-  const [reelItems, setReelItems] = useState(reels);
-  const addReelHandler = (newReel) => {
-    // Change items of reels
-    setReelItems((previousReels) => {
-      return [newReel, ...previousReels];
-    });
-  };
-
   return (
     <div className="App">
-      <AllVideos items={data} />
-      <AllReels onAddReel={addReelHandler} reels={reelItems} videos={data} />
-      <NewReel />
+      <Navigation />
+      <Switch>
+        <Route path="/" exact>
+          <AllReels videos={data} />
+        </Route>
+        <Route path="/all-videos">
+          <AllVideos items={data} />
+        </Route>
+      </Switch>
     </div>
   );
 }

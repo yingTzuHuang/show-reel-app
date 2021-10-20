@@ -5,7 +5,7 @@ import Videos from "../components/Videos/Videos";
 const AllVideos = (props) => {
   return (
     <Fragment>
-      <title>All Videos</title>
+      <h1>All Videos</h1>
       <Videos items={props.items} />
     </Fragment>
   );

@@ -1,27 +1,59 @@
-import React, { Fragment, useState } from "react";
-import TotalDuration from "./TotalDuration";
+import React from "react";
+import AddVideoToReel from "./AddVideoToReel";
+import TotalDuration from "../Duration/TotalDuration";
 
 const ReelItem = (props) => {
-  const [filteredVideos, setFilteredVideos] = useState(props.videos);
+  const selectReelHandler = () => {
+    props.onSelectReel(props.source);
+  };
 
-  //Todo: Filter video by reel
+  const addVideoToReelHandler = (video) => {
+    const changedReel = props.source;
+
+    if (
+      video.standard !== changedReel.standard ||
+      video.definition !== changedReel.definition
+    ) {
+      //Todo: change to error dialog
+      return console.log(
+        "Video Standard or definition doesn't match the reel's"
+      );
+    }
+
+    if (changedReel.videoIds.includes(video.id) === false) {
+      changedReel.videoIds.push(video.id);
+      props.onChangeReelVideos(changedReel);
+    } else {
+      //Todo: show message that the item already in reels
+    }
+  };
 
   return (
-    <Fragment>
+    <div className="reelItem">
       <div>
-        <label>Name:</label>
+        <label htmlFor="reelName">Name:</label>
         <div>{props.source.name}</div>
       </div>
       <div>
-        <label>Video Standard:</label>
-        <div>{props.source.description}</div>
-      </div>
-      <div>
-        <label>Video Definition: </label>
+        <label htmlFor="videoStandard">Video Standard:</label>
         <div>{props.source.standard}</div>
       </div>
-      <TotalDuration videos={filteredVideos} />
-    </Fragment>
+      <div>
+        <label htmlFor="videoDefinition">Video Definition: </label>
+        <div>{props.source.definition}</div>
+      </div>
+      <TotalDuration
+        videos={props.filteredVideos}
+        standard={props.source.standard}
+      />
+      <AddVideoToReel
+        videos={props.videos}
+        onAddToReel={addVideoToReelHandler}
+      />
+      <button type="button" onClick={selectReelHandler}>
+        Show Videos
+      </button>
+    </div>
   );
 };
 

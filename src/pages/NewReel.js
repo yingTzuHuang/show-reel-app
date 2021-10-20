@@ -4,12 +4,12 @@ import NewReelForm from "../components/NewReel/NewReelForm";
 // Todo: Apply styles
 const NewReel = (props) => {
   const saveReelHandler = (newReel) => {
-    //Todo: save new reel data and update AllReels page
+    props.onAddNewReel(newReel);
   };
 
   return (
     <Fragment>
-      <title>New Reel</title>
+      <h1>New Reel</h1>
       <NewReelForm onSaveReelData={saveReelHandler} />
     </Fragment>
   );

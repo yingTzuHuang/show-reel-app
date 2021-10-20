@@ -28,6 +28,10 @@ const NewReelForm = (props) => {
     setSelectedDefinition("");
   };
 
+  const nameChangeHandler = (event) => {
+    setEnteredName(event.target.value);
+  };
+
   const standardChangeHandler = (event) => {
     setSelectedStandard(event.target.value);
   };
@@ -41,11 +45,11 @@ const NewReelForm = (props) => {
     <form onSubmit={submitHandler}>
       <div>
         <div>
-          <label>Name</label>
-          <input type="text" value={enteredName} />
+          <label htmlFor="name">Name</label>
+          <input type="text" value={enteredName} onChange={nameChangeHandler} />
         </div>
         <div>
-          <label>Standard</label>
+          <label htmlFor="standard">Standard</label>
           <div>
             <input
               type="radio"
@@ -74,7 +78,7 @@ const NewReelForm = (props) => {
               name="definition"
               onChange={definitionChangeHandler}
               checked={selectedDefinition === "SD"}
-            />{" "}
+            />
             SD
             <input
               type="radio"
@@ -82,7 +86,7 @@ const NewReelForm = (props) => {
               name="definition"
               onChange={definitionChangeHandler}
               checked={selectedDefinition === "HD"}
-            />{" "}
+            />
             HD
           </div>
         </div>
